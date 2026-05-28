@@ -20,12 +20,12 @@ pipeline {
 
         stage('Instalar y probar') {
             steps {
-                bat 'pip install -r requirements.txt --quiet'
-                bat 'pip install pytest pytest-cov flake8 --quiet'
+                bat '"C:\\Users\\helio.lopez_davinci\\AppData\\Local\\Python\\bin\\python.exe" install -r requirements.txt --quiet'
+                bat '"C:\\Users\\helio.lopez_davinci\\AppData\\Local\\Python\\bin\\python.exe" install pytest pytest-cov flake8 --quiet'
                 bat 'mkdir reports 2>nul || echo ok'
                 bat 'flake8 app.py tests\\ --max-line-length=100'
                 bat """
-                    python -m pytest tests\\ -v ^
+                    "C:\\Users\\helio.lopez_davinci\\AppData\\Local\\Python\\bin\\python.exe" -m pytest tests\\ -v ^
                       --junitxml=reports\\junit.xml ^
                       --cov=. ^
                       --cov-report=xml:reports\\coverage.xml ^
